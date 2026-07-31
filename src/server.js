@@ -15,6 +15,9 @@ await connectDatabase();
 const app = createApp();
 const server = http.createServer(app);
 const io = new Server(server, {
+  pingInterval: 10000,
+  pingTimeout: 5000,
+  allowEIO3: true,
   cors: {
     origin: process.env.CORS_ORIGIN?.split(',') || ['http://localhost:5173'],
     credentials: true
